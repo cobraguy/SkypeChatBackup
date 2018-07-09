@@ -1,5 +1,5 @@
 # SkypeChatBackup
-A script written with Python 3.7 to backup Skype chats to text files. Made with the intent of helping me learn Python.
+A script written with Python 3.7 to backup Skype chats to text files. Made with the intent of helping me learn Python and basic SQL commands.
 Tested on Windows 10 with the Skype for Windows 10 app v.12.1815.209.0. This should work on Mac and Linux and with the Skype desktop app, assuming that Skype uses the same `.db` file across platforms and versions.
 
 # Explnations
