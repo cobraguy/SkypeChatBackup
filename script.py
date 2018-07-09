@@ -90,9 +90,8 @@ def backup_media():
     #May not get all media if the folder was recently cleared
 
     #Create the directories to backup media
-    backup_dest = MEDIA_BACKUP_PATH
-    if not os.path.exists(backup_dest):
-        os.mkdir(backup_dest)
+    if not os.path.exists(MEDIA_BACKUP_PATH):
+        os.mkdir(MEDIA_BACKUP_PATH)
         
     #Make sure the path to skype's media exists
     if os.path.exists(PATH_TO_MEDIA):
