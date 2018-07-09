@@ -74,7 +74,7 @@ def backup_convo(cursor, row):
         pass #No messages in this conversation. Don't attempt a backup
     else:
         #Use the encoding argument because skype escapes some apostrophes with utf-8
-        #Also windows would throw a UnicodeEncodeError
+        #Windows 10 would also throw a UnicodeEncodeError
         with open(BACKUP_PATH + id + '.txt', 'w', encoding='utf-8') as file:
             for message in messages:
                 author = message[0][message[0].index(':')+1:] #Trim the contact type from the author name
