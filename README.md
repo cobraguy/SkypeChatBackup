@@ -4,7 +4,7 @@ Tested on Windows 10 with the Skype for Windows 10 app v.12.1815.209.0. This sho
 
 # Explnations
 
-## Note
+### Note
 All paths given apply to the Skype for Windows 10 App (installed from the Microsoft Store). For the Skype desktop app (installed from the Skype website), I believe the needed files and folders are also stored somewhere within the dephts of the `AppData` folder, although I'm not positive because I don't use the desktop app. I'm also not sure of the paths on Mac and Linux
 
 ### `PATH_TO_DB`
