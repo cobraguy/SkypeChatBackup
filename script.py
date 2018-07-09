@@ -13,6 +13,8 @@ PATH_TO_MEDIA = 'C:\\Path\\To\\media_cache_v3\\' #IMPORTANT - Keep \\ (or / on M
 MEDIA_BACKUP_EXTENSIONS = ('.jpg',)
 #Where to store backups (relative to this script)
 BACKUP_PATH = 'chat_backups\\' #IMPORTANT - Keep \\ (or / on Mac and Linux) at the end of the path
+#Where to store backups of media (relative to this script)
+MEDIA_BACKUP_PATH = BACKUP_PATH + 'media\\' #IMPORTANT - Keep \\ (or / on Mac and Linux) at the end of the path
 
 def main():  
     #Make sure the path to skype.db exists
@@ -88,7 +90,7 @@ def backup_media():
     #May not get all media if the folder was recently cleared
 
     #Create the directories to backup media
-    backup_dest = BACKUP_PATH + '\\media\\'
+    backup_dest = MEDIA_BACKUP_PATH
     if not os.path.exists(backup_dest):
         os.mkdir(backup_dest)
         
