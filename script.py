@@ -78,11 +78,11 @@ def backup_convo(cursor, row):
         #Windows 10 would also throw a UnicodeEncodeError
         with open(BACKUP_PATH + id + '.txt', 'w', encoding='utf-8') as file:
             for message in messages:
-                time = '[' + message[0] + ']'
+                arrival_time = '[' + message[0] + ']'
                 author = message[1][message[1].index(':')+1:] #Trim the contact type from the author name   
                 #Skype escapes some apostrophes with &apos;
                 message_content = html.unescape(message[2])
-                file.write(time + ' ' + author + ': ' + message_content + '\n')
+                file.write(arrival_time + ' ' + author + ': ' + message_content + '\n')
         
         print(id, 'backup successful')
         
