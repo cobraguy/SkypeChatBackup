@@ -67,7 +67,8 @@ def backup_convo(cursor, row):
     id = row[1]
     
     #Select all the messages from a conversation
-    cursor.execute('SELECT author, content FROM messages WHERE convdbid = ? ORDER BY originalarrivaltime', (dbid,))
+    #originalarrivaltime is in unixepoch time in milliseconds
+    cursor.execute('SELECT datetime(originalarrivaltime/1000, "unixepoch", "localtime"), author, content FROM messages WHERE convdbid = ? ORDER BY originalarrivaltime', (dbid,))
     messages = cursor.fetchall()
     
     if not messages:
@@ -77,10 +78,11 @@ def backup_convo(cursor, row):
         #Windows 10 would also throw a UnicodeEncodeError
         with open(BACKUP_PATH + id + '.txt', 'w', encoding='utf-8') as file:
             for message in messages:
-                author = message[0][message[0].index(':')+1:] #Trim the contact type from the author name
+                arrival_time = '[' + message[0] + ']'
+                author = message[1][message[1].index(':')+1:] #Trim the contact type from the author name   
                 #Skype escapes some apostrophes with &apos;
-                message_content = html.unescape(message[1])
-                file.write(author + ': ' + message_content + '\n')
+                message_content = html.unescape(message[2])
+                file.write(arrival_time + ' ' + author + ': ' + message_content + '\n')
         
         print(id, 'backup successful')
         
